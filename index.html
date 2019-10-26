@@ -22,7 +22,7 @@
 
       .wrapper {
         width: 100%;
-        height: 620px;
+        height: 100%;
       }
 
       .wrapper video {
@@ -34,12 +34,12 @@
       }
       .wrapper .title {
         color: white;
-        padding-top: 15px;
         font-size: 30px;
         text-align: center;
         transform: scale(0.8);
         width: 100%;
-        height: 70px;
+        top: 0px;
+        height: 55px;
         background: url(img/标题.svg) no-repeat;
         background-size: 100% 100%;
       }
@@ -183,21 +183,21 @@
 
     <script>
       /*功能一：
-        所有的图片撑开成一个圆
-        1.所有图片旋转一定的度数
-        0*deg   1*deg   2*deg
-        2.便利所有图片，并动态绑定一个度数值
+              所有的图片撑开成一个圆
+              1.所有图片旋转一定的度数
+              0*deg   1*deg   2*deg
+              2.便利所有图片，并动态绑定一个度数值
 
-      功能二：
-        拖拽
-        1.按下  移动  松开
-        相册移动的位置  鼠标移动的位置
+            功能二：
+              拖拽
+              1.按下  移动  松开
+              相册移动的位置  鼠标移动的位置
 
-        相册移动的距离：
-        坐标差 = 现在的坐标 - 以前的坐标
+              相册移动的距离：
+              坐标差 = 现在的坐标 - 以前的坐标
 
-        算出相册的总度数  累加上差值
-     */
+              算出相册的总度数  累加上差值
+           */
       window.onload = function() {
         //页面加载完毕再执行
         var oImg = document.getElementsByClassName('image-block');
@@ -218,8 +218,12 @@
           el.style.transition = '2s ' + (6 - index) * 0.1 + 's';
         });
 
-        /* wrap.style.transform = 'rotateY(' + 60 + 'deg)';
-        wrap.style.transition = 'rotate 3s ease 3s'; */
+        setTimeout(function role() {
+          wrap.style.transform = 'rotateX(' + -5 + 'deg) rotateY(' + -59 + 'deg)';
+          wrap.style.transition = '3s';
+        }, 4000);
+
+        
 
         document.onmousedown = function(e) {
           //            点击
