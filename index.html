@@ -35,19 +35,21 @@
         #wrap .image-block {
             position: absolute;
             transform: rotateY(0deg);
-            transition: 1s; /* 值的改变有一个过渡的过程 */
-        }
-        #wrap .image-block img{
-            width: 150px;
-            height: 178px;
+            /* transition: 1s; 值的改变有一个过渡的过程 */
         }
 
-        .pic {
-            border: 2px solid #fff;
-            padding: 5px;
-            -moz-box-shadow: 0px 0px 8px 2px #fdfdfd; /*firefox*/
-            -webkit-box-shadow: 0px 0px 8px 2px #fdfdfd; /*webkit*/
-            box-shadow: 0px 0px 8px 2px #fdfdfd; /*opera或ie9*/
+        #wrap .image-block .text {
+            top: 10%;
+            width: 100%;
+            display: inline-block;
+            text-align: center;
+            color: white;
+            position: absolute;
+        }
+
+        #wrap .image-block img{
+            width: 150px;
+            /* height: 178px; */
         }
 
         /*倒影效果 s*/
@@ -85,90 +87,53 @@
     <div id="wrap">
 
         <div class="image-block">
-            <img class="pic" src="img/img1.jpg" />
+            <span class="text">内容审核</span>
+            <img src="img/内容审核_正常bg.svg" />
             <div class="reflection">
-                <img src="img/img1.jpg" />
+                <img src="img/内容审核_正常bg.svg" />
                 <div class="overlay"></div>
             </div>
         </div>
         <div class="image-block">
-            <img class="pic" src="img/img2.jpg" />
+            <span class="text">人脸识别</span>
+            <img src="img/人脸识别_正常bg.svg" />
             <div class="reflection">
-                <img src="img/img2.jpg" />
+                <img src="img/人脸识别_正常bg.svg" />
                 <div class="overlay"></div>
             </div>
         </div>
         <div class="image-block">
-            <img class="pic" src="img/img3.jpg" />
+            <span class="text">图片文字识别</span>
+            <img src="img/图片文字识别_正常bg.svg" />
             <div class="reflection">
-                <img src="img/img3.jpg" />
+                <img src="img/图片文字识别_正常bg.svg" />
                 <div class="overlay"></div>
             </div>
         </div>
         <div class="image-block">
-            <img class="pic" src="img/img4.jpg" />
+            <span class="text">知识图谱</span>
+            <img src="img/知识图谱_正常bg.svg" />
             <div class="reflection">
-                <img src="img/img4.jpg" />
+                <img src="img/知识图谱_正常bg.svg" />
                 <div class="overlay"></div>
             </div>
         </div>
         <div class="image-block">
-            <img class="pic" src="img/img5.jpg" />
+            <span class="text">自然语言处理</span>
+            <img src="img/自然语言处理_正常bg.svg" />
             <div class="reflection">
-                <img src="img/img5.jpg" />
+                <img src="img/自然语言处理_正常bg.svg" />
                 <div class="overlay"></div>
             </div>
         </div>
         <div class="image-block">
-            <img class="pic" src="img/img6.jpg" />
+            <span class="text">语音识别</span>
+            <img src="img/语音识别_正常bg.svg" />
             <div class="reflection">
-                <img src="img/img6.jpg" />
+                <img src="img/语音识别_正常bg.svg" />
                 <div class="overlay"></div>
             </div>
         </div>
-       <!--  <div class="image-block">
-            <img class="pic" src="img/img7.jpg" />
-            <div class="reflection">
-                <img src="img/img7.jpg" />
-                <div class="overlay"></div>
-            </div>
-        </div>
-        <div class="image-block">
-            <img class="pic" src="img/img8.jpg" />
-            <div class="reflection">
-                <img src="img/img8.jpg" />
-                <div class="overlay"></div>
-            </div>
-        </div>
-        <div class="image-block">
-            <img class="pic" src="img/img9.jpg" />
-            <div class="reflection">
-                <img src="img/img9.jpg" />
-                <div class="overlay"></div>
-            </div>
-        </div>
-        <div class="image-block">
-            <img class="pic" src="img/img10.jpg" />
-            <div class="reflection">
-                <img src="img/img10.jpg" />
-                <div class="overlay"></div>
-            </div>
-        </div>
-        <div class="image-block">
-            <img class="pic" src="img/img11.jpg" />
-            <div class="reflection">
-                <img src="img/img11.jpg" />
-                <div class="overlay"></div>
-            </div>
-        </div>
-        <div class="image-block">
-            <img class="pic" src="img/img12.jpg" />
-            <div class="reflection">
-                <img src="img/img12.jpg" />
-                <div class="overlay"></div>
-            </div>
-        </div> -->
-
     </div>
 </div>
 <script>
@@ -192,12 +157,22 @@
         var oImg = document.getElementsByClassName("image-block");
         var deg = 360 / 6; //旋转的单位度数
 
-        var nowX, nowY, lastX, lastY, minsX, minsY, roX = -40, roY = 0;
+        var nowX, nowY, lastX, lastY, minsX, minsY, roX = -5, roY = 0;
 
         Array.prototype.forEach.call(oImg, function (el, index) {
             el.style.transform = "rotateY(" + index * deg + "deg) translateZ(300px)";
             el.style.transition = "1s " + (6 - index) * 0.1 + "s"
         });
+
+        /* setTimeout(Array.prototype.forEach.call(oImg, function (el, index) {
+            el.style.transform = "rotateY(60deg) translateZ(300px)";
+            el.style.transition = "1s " + (6 - index) * 0.1 + "s"
+        }) , 3000) */
+
+       /*  Array.prototype.forEach.call(oImg, function (el, index) {
+            el.style.transform = "rotateY(60deg)";
+            el.style.transition = "3s 1s"
+        }); */
 
         document.onmousedown = function (e) {
 //            点击
@@ -219,8 +194,8 @@
                 minsY = nowY - lastY;
 
 //                旋转的总度数的值
-                roX -= minsY * 0.4;
-                roY += minsX * 0.4;
+                roX -= minsY * 0.2;
+                roY += minsX * 0.2;
 
                 //id获取的元素可以直接通过元素Id去获取  可以不需要通过document.getElementById();
                 /* wrap.style.transform = "rotateY(" + roY + "deg)" */
