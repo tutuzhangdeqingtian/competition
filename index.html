@@ -10,13 +10,38 @@
       }
 
       body {
-        background: #000;
+        width: 100%;
+        height: 100%;
         overflow: hidden;
         /*内容不能被选中*/
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
+      }
+
+      .wrapper {
+        width: 100%;
+        height: 620px;
+      }
+
+      .wrapper video {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        object-fit: fill;
+        z-index: -9999;
+      }
+      .wrapper .title {
+        color: white;
+        padding-top: 15px;
+        font-size: 30px;
+        text-align: center;
+        transform: scale(0.8);
+        width: 100%;
+        height: 70px;
+        background: url(img/标题.svg) no-repeat;
+        background-size: 100% 100%;
       }
 
       #perspective {
@@ -85,69 +110,77 @@
           rgb(0, 0, 0) 40%
         );
         background-image: -webkit-gradient(
-          linear,
+          /* linear,
           left bottom,
           left top,
           color-stop(0.6, rgb(0, 0, 0)),
-          color-stop(0.75, rgba(0, 0, 0, 0))
+          color-stop(0.75, rgba(0, 0, 0, 0)) */
         );
         filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=0, startColor=0, EndColorStr=#000000);
       }
     </style>
   </head>
   <body>
-    <div id="perspective">
-      <div id="wrap">
-        <div class="image-block">
-          <span class="text">内容审核</span>
-          <img src="img/内容审核_正常bg.svg" />
-          <div class="reflection">
+    <div class="wrapper">
+      <video autoplay muted loop style="width: 100%">
+        <source src="背景+脑子+粒子.mp4" />
+      </video>
+
+      <div class="title ">云上AI</div>
+      <div id="perspective">
+        <div id="wrap">
+          <div class="image-block">
+            <span class="text">内容审核</span>
             <img src="img/内容审核_正常bg.svg" />
-            <div class="overlay"></div>
+            <div class="reflection">
+              <img src="img/内容审核_正常bg.svg" />
+              <div class="overlay"></div>
+            </div>
           </div>
-        </div>
-        <div class="image-block">
-          <span class="text">人脸识别</span>
-          <img src="img/人脸识别_正常bg.svg" />
-          <div class="reflection">
+          <div class="image-block">
+            <span class="text">人脸识别</span>
             <img src="img/人脸识别_正常bg.svg" />
-            <div class="overlay"></div>
+            <div class="reflection">
+              <img src="img/人脸识别_正常bg.svg" />
+              <div class="overlay"></div>
+            </div>
           </div>
-        </div>
-        <div class="image-block">
-          <span class="text">图片文字识别</span>
-          <img src="img/图片文字识别_正常bg.svg" />
-          <div class="reflection">
+          <div class="image-block">
+            <span class="text">图片文字识别</span>
             <img src="img/图片文字识别_正常bg.svg" />
-            <div class="overlay"></div>
+            <div class="reflection">
+              <img src="img/图片文字识别_正常bg.svg" />
+              <div class="overlay"></div>
+            </div>
           </div>
-        </div>
-        <div class="image-block">
-          <span class="text">知识图谱</span>
-          <img src="img/知识图谱_正常bg.svg" />
-          <div class="reflection">
+          <div class="image-block">
+            <span class="text">知识图谱</span>
             <img src="img/知识图谱_正常bg.svg" />
-            <div class="overlay"></div>
+            <div class="reflection">
+              <img src="img/知识图谱_正常bg.svg" />
+              <div class="overlay"></div>
+            </div>
           </div>
-        </div>
-        <div class="image-block">
-          <span class="text">自然语言处理</span>
-          <img src="img/自然语言处理_正常bg.svg" />
-          <div class="reflection">
+          <div class="image-block">
+            <span class="text">自然语言处理</span>
             <img src="img/自然语言处理_正常bg.svg" />
-            <div class="overlay"></div>
+            <div class="reflection">
+              <img src="img/自然语言处理_正常bg.svg" />
+              <div class="overlay"></div>
+            </div>
           </div>
-        </div>
-        <div class="image-block">
-          <span class="text">语音识别</span>
-          <img src="img/语音识别_正常bg.svg" />
-          <div class="reflection">
+          <div class="image-block">
+            <span class="text">语音识别</span>
             <img src="img/语音识别_正常bg.svg" />
-            <div class="overlay"></div>
+            <div class="reflection">
+              <img src="img/语音识别_正常bg.svg" />
+              <div class="overlay"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
     <script>
       /*功能一：
         所有的图片撑开成一个圆
@@ -182,18 +215,11 @@
         Array.prototype.forEach.call(oImg, function(el, index) {
           el.style.transform =
             'rotateY(' + index * deg + 'deg) translateZ(300px)';
-          el.style.transition = '1s ' + (6 - index) * 0.1 + 's';
+          el.style.transition = '2s ' + (6 - index) * 0.1 + 's';
         });
 
-        /* setTimeout(Array.prototype.forEach.call(oImg, function (el, index) {
-            el.style.transform = "rotateY(60deg) translateZ(300px)";
-            el.style.transition = "1s " + (6 - index) * 0.1 + "s"
-        }) , 3000) */
-
-        /*  Array.prototype.forEach.call(oImg, function (el, index) {
-            el.style.transform = "rotateY(60deg)";
-            el.style.transition = "3s 1s"
-        }); */
+        /* wrap.style.transform = 'rotateY(' + 60 + 'deg)';
+        wrap.style.transition = 'rotate 3s ease 3s'; */
 
         document.onmousedown = function(e) {
           //            点击
